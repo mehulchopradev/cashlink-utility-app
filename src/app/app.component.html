@@ -1,0 +1,31 @@
+<div class="calc-container">
+  <div class="row">
+    <input #first type="text" placeholder="Enter 1st No" [value]="firstNo" (keyup)="onFirstNoChanged(first.value)">
+    <select #ops (input)="onOperationChanged(ops.value)">
+      <option>+</option>
+      <option>-</option>
+      <option>*</option>
+    </select>
+    <input #second type="text" placeholder="Enter 2nd No" [value]="secondNo" (keyup)="onSecondNoChanged(second.value)">
+  </div>
+  <div class="row">
+    <button (click)="onCalculate()">Calculate</button>
+  </div>
+  <div class="row">
+    <input type="text" placeholder="Ans is here!" readonly [value]="ans">
+  </div>
+  <div class="calc-results">
+    <div>
+      <i>The first number entered by you: </i><span>34</span>
+    </div>
+    <div>
+      <i>The operation selected by you: </i><span>+</span>
+    </div>
+    <div>
+      <i>The second number entered by you: </i><span>45</span>
+    </div>
+    <div>
+      <i>The ans of the above operation: </i><span>43543</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+.calc-container {
+    text-align: center;
+    .row {
+        margin: 2rem;
+    }
+
+    select {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .calc-results {
+        div {
+            margin: 1rem;
+        }
+    }
+}
