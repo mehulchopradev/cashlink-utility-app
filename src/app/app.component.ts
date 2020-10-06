@@ -38,16 +38,4 @@ export class AppComponent {
 
     this.ans = iAns + "";
   }
-
-  onFirstNoChanged(firstNo: string) {
-    this.firstNo = firstNo;
-  }
-
-  onSecondNoChanged(secondNo: string) {
-    this.secondNo = secondNo;
-  }
-
-  onOperationChanged(operation: string) {
-    this.operation = operation;
-  }
 }
