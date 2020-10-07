@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-calc-results',
@@ -6,6 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calc-results.component.scss']
 })
 export class CalcResultsComponent implements OnInit {
+
+  @Input()
+  first: string;
+
+  @Input()
+  second: string;
+
+  @Input()
+  ops: string;
+
+  @Input()
+  ans: string;
 
   constructor() { }
 

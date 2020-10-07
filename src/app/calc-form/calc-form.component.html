@@ -1,0 +1,15 @@
+<div class="row">
+    <input type="text" placeholder="Enter 1st No" [(ngModel)]="firstNo">
+    <select [(ngModel)]="operation">
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+    </select>
+    <input type="text" placeholder="Enter 2nd No" [(ngModel)]="secondNo">
+</div>
+<div class="row">
+    <button (click)="onCalculate()">Calculate</button>
+</div>
+<div class="row">
+    <input type="text" placeholder="Ans is here!" readonly [value]="ans">
+</div>

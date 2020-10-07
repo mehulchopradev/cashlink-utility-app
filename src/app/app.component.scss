@@ -1,11 +1,14 @@
-.calc-container {
+h2, .nav {
     text-align: center;
-    .row {
+}
+
+.nav {
+    a {
         margin: 2rem;
     }
+}
 
-    select {
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
+.footer {
+    position: fixed;
+    bottom: 0;
 }
