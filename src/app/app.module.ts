@@ -8,6 +8,9 @@ import { CalcResultsComponent } from './calc-results/calc-results.component';
 import { CalcFormComponent } from './calc-form/calc-form.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { TodosComponent } from './todos/todos.component';
+import { TodoFormComponent } from './todo-form/todo-form.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
+import { CapitalizePipe } from './capitalize.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { TodosComponent } from './todos/todos.component';
     CalcResultsComponent,
     CalcFormComponent,
     CalculatorComponent,
-    TodosComponent
+    TodosComponent,
+    TodoFormComponent,
+    TodoListComponent,
+    CapitalizePipe
   ],
   imports: [
     BrowserModule,
