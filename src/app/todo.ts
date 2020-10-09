@@ -1,5 +1,5 @@
 export class Todo {
-    /* private _title: string;
+    /* title: string;
     done: boolean;
     createdDate: Date;
 
@@ -16,6 +16,7 @@ export class Todo {
     }
 
     set title(title: string) {
+        // encapsulation checks
         this._title = title;
     }
 }

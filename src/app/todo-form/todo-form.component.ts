@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodosService } from '../todos.service';
 
 @Component({
   selector: 'app-todo-form',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoFormComponent implements OnInit {
 
-  constructor() { }
+  newTodo: string;
+
+  // Dependency injection
+  // IOC (Inversion of control)
+  constructor(private todosService: TodosService) {
+    this.newTodo = null;
+  }
 
   ngOnInit(): void {
+  }
+
+  onSave() {
+    const { newTodo } = this;
+    this.todosService.addTodo(newTodo);
+    this.newTodo = null;
   }
 
 }

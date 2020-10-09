@@ -1,6 +1,7 @@
 <div class="todo-list-container">
-    <div *ngFor="let todo of todos">
+    <div *ngFor="let todo of todosService.todos">
         <input type="checkbox" [(ngModel)]="todo.done">{{todo.title | capitalize}}<i>({{todo.createdDate | date: 'dd-MM-yyyy'}})</i>
     </div>
-    <button *ngIf="isVisible" (click)="onFinish()">Finish completed todos</button>
+    <button [disabled]="isDisabled" (click)="onFinish()">Finish completed todos</button>
+    <span>({{markedForCompletionCount}})</span>
 </div>
