@@ -9,7 +9,7 @@ export class Todo {
         this.createdDate = createdDate;
     } */
 
-    constructor(private _title: string, public done: boolean, public createdDate: Date=new Date()) {}
+    constructor(private _title: string, public done: boolean, public createdDate: Date=new Date(), public id?: number) {}
 
     get title() {
         return this._title;

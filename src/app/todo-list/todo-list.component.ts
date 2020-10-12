@@ -68,6 +68,8 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // to make initial async calls for the data
+    this.todosService.fetchTodos();
   }
 
 }
