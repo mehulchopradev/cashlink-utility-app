@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodosService } from '../todos.service';
+import { Todo } from '../todo';
 
 @Component({
   selector: 'app-todo-form',
@@ -20,9 +21,14 @@ export class TodoFormComponent implements OnInit {
   }
 
   onSave() {
-    const { newTodo } = this;
-    this.todosService.addTodo(newTodo);
-    this.newTodo = null;
+    const { newTodo } = this; // sync code
+    this.todosService.addTodo(newTodo)
+      .subscribe((todo: Todo) => {
+        if (todo.id) {
+          // there was success in saving the todo
+          this.newTodo = null; // sync code (clears out the text field)
+          // this.todosService.todos.push(todo); // not ideal. Shud be the job of todos service to push it in the todos array
+        }
+      }); // async code
   }
-
 }
