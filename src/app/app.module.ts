@@ -13,6 +13,9 @@ import { TodoFormComponent } from './todo-form/todo-form.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { CapitalizePipe } from './capitalize.pipe';
 import { AlertMessageComponent } from './alert-message/alert-message.component';
+import { LibraryComponent } from './library/library.component';
+import { BooksComponent } from './library/books/books.component';
+import { BookDetailsComponent } from './library/book-details/book-details.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { AlertMessageComponent } from './alert-message/alert-message.component';
     TodoFormComponent,
     TodoListComponent,
     CapitalizePipe,
-    AlertMessageComponent
+    AlertMessageComponent,
+    LibraryComponent,
+    BooksComponent,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,

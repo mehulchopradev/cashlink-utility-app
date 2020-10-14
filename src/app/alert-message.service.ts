@@ -10,4 +10,22 @@ export class AlertMessageService {
   constructor() {
     this.message = null;
   }
+
+  showError(description: string): void {
+    this.message = {
+      description, // description: description
+      messageType: 'error'
+    }
+  }
+
+  showSuccess(description: string): void {
+    this.message = {
+      description,
+      messageType: 'success'
+    }
+  }
+
+  clearMessage() {
+    this.message = null;
+  }
 }

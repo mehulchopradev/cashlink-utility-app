@@ -62,9 +62,10 @@ export class TodoListComponent implements OnInit {
   }
 
   onFinish() {
-    this.todosService.todos = this.todosService.todos.filter(todo => !todo.done);
+    // this.todosService.todos = this.todosService.todos.filter(todo => !todo.done);
     // this.todos = this.todos.filter(todo => !todo.done);
     // this.isVisible = this.todos.length > 0;
+    this.todosService.markDoneTodosCompleted();
   }
 
   ngOnInit(): void {
