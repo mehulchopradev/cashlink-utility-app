@@ -7,20 +7,10 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1</td>
-            <td>Book 1</td>
-            <td><a href="">Details</a></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Book 2</td>
-            <td><a href="">Details</a></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Book 3</td>
-            <td><a href="">Details</a></td>
+        <tr *ngFor="let book of booksService.books">
+            <td>{{book.id}}</td>
+            <td>{{book.title}}</td>
+            <td><a routerLink="/lib/book-details/{{book.id}}" href="">Details</a></td>
         </tr>
     </tbody>
 </table>
