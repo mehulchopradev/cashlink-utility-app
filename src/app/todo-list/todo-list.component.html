@@ -1,7 +1,11 @@
 <div class="todo-list-container">
-    <div *ngFor="let todo of todosService.todos">
+    <mat-selection-list [(ngModel)]="checkedTodos">
+        <mat-list-option *ngFor="let todo of todosService.todos" [value]="todo.id">
+            {{todo.title | capitalize}}<i>({{todo.createdDate | date: 'dd-MM-yyyy'}})</i>
+        </mat-list-option>
+    </mat-selection-list>
+    <!-- <div *ngFor="let todo of todosService.todos">
         <input type="checkbox" [(ngModel)]="todo.done">{{todo.title | capitalize}}<i>({{todo.createdDate | date: 'dd-MM-yyyy'}})</i>
-    </div>
-    <button [disabled]="isDisabled" (click)="onFinish()">Finish completed todos</button>
-    <span>({{markedForCompletionCount}})</span>
+    </div> -->
+    <button mat-raised-button [matBadge]="markedForCompletionCount" color="accent" [disabled]="isDisabled" (click)="onFinish()">Finish completed todos</button>
 </div>

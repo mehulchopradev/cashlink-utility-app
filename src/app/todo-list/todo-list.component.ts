@@ -13,7 +13,10 @@ export class TodoListComponent implements OnInit {
 
   // isVisible: boolean;
 
+  checkedTodos: number[];
+
   constructor(public todosService: TodosService) {
+    this.checkedTodos = [];
     /* this.todos = [
       new Todo('learng gaming', true),
       new Todo('practice programming', false),
@@ -50,7 +53,8 @@ export class TodoListComponent implements OnInit {
   // markedForCompletionCount -> 0; if 0 todos are marked for completion
   // markedForCompletionCount is a dynamic property being computed on the basis of the done property in every Todo in todos list
   get markedForCompletionCount() {
-    return this.todosService.todos.filter(todo => todo.done).length;
+    // return this.todosService.todos.filter(todo => todo.done).length;
+    return this.checkedTodos.length;
   }
 
   // isDisabled -> true; if there is no todo in todolist or no todo is checked in the todolist
@@ -58,13 +62,23 @@ export class TodoListComponent implements OnInit {
   // isDisabled is a dynamic property being computed on the basis of the done property in every Todo in todos list
   get isDisabled() {
     // console.log('Get isDisabled called');
-    return this.todosService.todos.filter(todo => todo.done).length == 0;
+    // return this.todosService.todos.filter(todo => todo.done).length == 0;
+    return this.checkedTodos.length == 0;
   }
 
   onFinish() {
     // this.todosService.todos = this.todosService.todos.filter(todo => !todo.done);
     // this.todos = this.todos.filter(todo => !todo.done);
     // this.isVisible = this.todos.length > 0;
+    // this.todosService.markDoneTodosCompleted();
+
+    const { checkedTodos } = this;
+    this.todosService.todos.forEach(todo => {
+      if (checkedTodos.includes(todo.id)) {
+        todo.done = true;
+      }
+    });
+
     this.todosService.markDoneTodosCompleted();
   }
 

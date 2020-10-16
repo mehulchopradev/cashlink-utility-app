@@ -5,6 +5,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { Todo } from './todo';
 import { Observable, of, forkJoin } from 'rxjs';
 import { AlertMessageService } from './alert-message.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class TodosService {
 
   httpOptions: object;
 
-  constructor(private http: HttpClient, private alertService: AlertMessageService) {
+  constructor(private http: HttpClient, private alertService: AlertMessageService, private snackBar: MatSnackBar) {
     this.todos = [];
     this.url = 'http://localhost:3000/todos';
     this.httpOptions = {
@@ -58,7 +59,10 @@ export class TodosService {
           // side effect code
           // will be called when the previous call is a success
           this.todos.push(todo);
-          this.alertService.showSuccess('Todo saved successfully');
+          // this.alertService.showSuccess('Todo saved successfully');
+          this.snackBar.open('Todo Saved Successfully', '', {
+            duration: 5000,
+          });
         }),
         catchError((err: any): Observable<any> => {
           // will be called when the previous call is a failure

@@ -16,6 +16,15 @@ import { AlertMessageComponent } from './alert-message/alert-message.component';
 import { LibraryComponent } from './library/library.component';
 import { BooksComponent } from './library/books/books.component';
 import { BookDetailsComponent } from './library/book-details/book-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatListModule } from '@angular/material/list';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -37,6 +46,15 @@ import { BookDetailsComponent } from './library/book-details/book-details.compon
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatTabsModule,
+    MatListModule,
+    MatBadgeModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

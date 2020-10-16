@@ -1,11 +1,11 @@
 <h2>
   Welcome to my utility app
 </h2>
-<div class="nav">
-  <a routerLink="calc">Calculator</a> | 
-  <a routerLink="todos">Todos</a> |
-  <a routerLink="/lib/books">Library</a>
-</div>
+<nav mat-tab-nav-bar mat-align-tabs="center">
+  <a (click)="activeLink = 'calc'" [active]="activeLink == 'calc'" mat-tab-link routerLink="calc" >Calculator</a> 
+  <a (click)="activeLink = 'todos'" [active]="activeLink == 'todos'" mat-tab-link routerLink="todos">Todos</a>
+  <a (click)="activeLink = 'library'" [active]="activeLink == 'library'" mat-tab-link routerLink="/lib/books">Library</a>
+</nav>
 <app-alert-message></app-alert-message>
 <router-outlet></router-outlet>
 <div class="footer">
