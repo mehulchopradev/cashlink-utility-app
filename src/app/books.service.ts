@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Book } from './book';
 
 @Injectable({
@@ -12,7 +13,7 @@ export class BooksService {
 
   url: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) {
     this.books = [];
     this.url = 'http://localhost:3000/books';
   }
@@ -26,5 +27,22 @@ export class BooksService {
 
   fetchBook(id: number): Observable<Book> {
     return this.http.get<Book>(`${this.url}/${id}`);
+  }
+
+  addBook(book: Book) {
+    this.http.post<Book>(this.url, {
+      title: book.title,
+      pages: book.pages,
+      price: book.price
+    }, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    }).subscribe(book => {
+      this.books.push(book);
+      this.snackBar.open('Book Added successfully', '', {
+        duration: 3000,
+      });
+    });
   }
 }

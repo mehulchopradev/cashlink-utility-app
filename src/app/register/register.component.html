@@ -1,0 +1,59 @@
+<div class="row">
+    <form [formGroup]="group" (ngSubmit)="onSave()">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Basic Login Information</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Username</mat-label>
+                        <input matInput formControlName="username">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input matInput formControlName="password" type="password">
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <mat-card formGroupName="address">
+            <mat-card-header>
+                <mat-card-title>Other Information</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Country</mat-label>
+                        <mat-select formControlName="country">
+                            <mat-option value="IN">India</mat-option>
+                            <mat-option value="AU">Australia</mat-option>
+                            <mat-option value="USA">United states of america</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>State</mat-label>
+                        <input matInput formControlName="state">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Pincode</mat-label>
+                        <input matInput formControlName="zipCode">
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <mat-card formArrayName="hobbies">
+            Hobbies <br>
+            <div *ngFor="let hobby of hobbies.controls; let i = index">
+                <input type="checkbox" [formControlName]="i">
+            </div>
+        </mat-card>
+        <button mat-raised-button color="primary">Save</button>
+    </form>
+</div>

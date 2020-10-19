@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Add books</h2>
+<div mat-dialog-content>
+    <div>
+        <mat-form-field>
+            <mat-label>Enter title</mat-label>
+            <input matInput [(ngModel)]="book.title">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Enter Price</mat-label>
+            <input matInput [(ngModel)]="book.price">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Enter Pages</mat-label>
+            <input matInput [(ngModel)]="book.pages">
+        </mat-form-field>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-button [mat-dialog-close]="book">Save</button>
+</div>

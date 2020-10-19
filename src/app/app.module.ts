@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +25,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { AddBookDialogComponent } from './add-book-dialog/add-book-dialog.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -39,12 +43,15 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AlertMessageComponent,
     LibraryComponent,
     BooksComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    AddBookDialogComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
@@ -55,6 +62,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatListModule,
     MatBadgeModule,
     MatSnackBarModule,
+    MatDialogModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

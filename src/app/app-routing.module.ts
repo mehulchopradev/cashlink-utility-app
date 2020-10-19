@@ -5,10 +5,12 @@ import { TodosComponent } from './todos/todos.component';
 import { LibraryComponent } from './library/library.component';
 import { BooksComponent } from './library/books/books.component';
 import { BookDetailsComponent } from './library/book-details/book-details.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: 'calc', component: CalculatorComponent },
   { path: 'todos', component: TodosComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'lib', component: LibraryComponent, children: [
     { path: 'books', component: BooksComponent },
     { path: 'book-details/:bookId', component: BookDetailsComponent }
