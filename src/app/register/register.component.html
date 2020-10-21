@@ -8,20 +8,42 @@
                 <div>
                     <mat-form-field>
                         <mat-label>Username</mat-label>
-                        <input matInput formControlName="username">
+                        <input type="email" matInput formControlName="username" required>
                     </mat-form-field>
+                    <div *ngIf="username.invalid && (username.dirty || username.touched)">
+                        <div *ngIf="username.errors.required">
+                            Username is required
+                        </div>
+                        <div *ngIf="username.errors.email">
+                            Username must be of email format
+                        </div>
+                        <div *ngIf="username.errors.usernameExists">
+                            Username already taken. Choose a different one
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <mat-form-field>
                         <mat-label>Password</mat-label>
-                        <input matInput formControlName="password" type="password">
+                        <input matInput formControlName="password" type="password" minlength="6" maxlength="10" required>
                     </mat-form-field>
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                        <div *ngIf="password.errors.required">
+                            Password is required
+                        </div>
+                        <div *ngIf="password.errors.minlength">
+                            Password must be minimum 6 characters
+                        </div>
+                        <div *ngIf="password.errors.maxlength">
+                            Password must be maximum 10 characters
+                        </div>
+                    </div>
                 </div>
             </mat-card-content>
         </mat-card>
         <mat-card formGroupName="address">
             <mat-card-header>
-                <mat-card-title>Other Information</mat-card-title>
+                <mat-card-title>Address Information</mat-card-title>
             </mat-card-header>
             <mat-card-content>
                 <div>
@@ -48,12 +70,21 @@
                 </div>
             </mat-card-content>
         </mat-card>
-        <mat-card formArrayName="hobbies">
-            Hobbies <br>
-            <div *ngFor="let hobby of hobbies.controls; let i = index">
-                <input type="checkbox" [formControlName]="i">
-            </div>
+        <mat-card formGroupName="contacts">
+            <mat-card-header>
+                <mat-card-title>Contact Information</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div *ngFor="let contact of contacts.controls; let i = index">
+                    <mat-form-field>
+                        <mat-label>Enter contact no {{i + 1}}</mat-label>
+                        <input matInput [formControlName]="i">
+                    </mat-form-field>
+                    <a (click)="onDeleteContact(i); $event.preventDefault()" href="#">Delete</a>
+                </div>
+                <button type="button" (click)="onAddContact()" mat-raised-button color="accent">Add a contact</button>
+            </mat-card-content>
         </mat-card>
-        <button mat-raised-button color="primary">Save</button>
+        <button [disabled]="!group.valid" mat-raised-button color="primary">Save</button>
     </form>
 </div>

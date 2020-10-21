@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, FormArray, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -20,36 +20,60 @@ export class RegisterComponent implements OnInit {
         zipCode: new FormControl(''),
       }),
     }); */
-    // imagine we get the hobbies from the server
-    const hobbiesData = [
-      'Sports',
-      'Shopping',
-      'Travel',
-      'Entertainment'
-    ];
 
     this.group = this.builder.group({
-      username: [''],
-      password: [''],
+      username: ['', [Validators.required, Validators.email, this.usernameExistsValidator]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
       address: this.builder.group({
         country: [''],
         state: [''],
         zipCode: [''],
       }),
-      hobbies: this.builder.array(hobbiesData.map(hobby => this.builder.control('')))
+      contacts: this.builder.array([])
     });
   }
 
   ngOnInit(): void {
   }
 
-  get hobbies() {
-    return this.group.get('hobbies') as FormArray;
+  get username() {
+    return this.group.get('username');
+  }
+
+  get password() {
+    return this.group.get('password');
+  }
+
+  get contacts(): FormArray {
+    return this.group.get('contacts') as FormArray;
+  }
+
+  onAddContact(): void {
+    this.contacts.push(this.builder.control(''));
+  }
+
+  onDeleteContact(index: number): void {
+    this.contacts.removeAt(index);
   }
 
   onSave(): void {
     const { value } = this.group;
     debugger;
+  }
+
+  usernameExistsValidator(control: AbstractControl): {[key: string]: any} | null {
+    // custom validation code
+
+    // sync validator code
+    const existingUsernames = ['mehul@gmail.com', 'rock@gmail.com', 'admin@gmail.com'];
+    const username = control.value;
+    if (username && username.length && existingUsernames.includes(username)) {
+      return {
+        usernameExists: true,
+      }
+    }
+
+    return null;
   }
 
 }
