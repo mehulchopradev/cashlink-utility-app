@@ -27,6 +27,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
 import { AddBookDialogComponent } from './add-book-dialog/add-book-dialog.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -64,6 +65,7 @@ import { RegisterComponent } from './register/register.component';
     MatSnackBarModule,
     MatDialogModule,
     MatCardModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

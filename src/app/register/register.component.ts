@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, FormArray, Validators, AbstractControl } from '@angular/forms';
+import { Observable, pipe } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   group: FormGroup;
 
-  constructor(private builder: FormBuilder) {
+  constructor(private builder: FormBuilder, private http: HttpClient) {
     /* this.group = new FormGroup({
       username: new FormControl(''),
       password: new FormControl(''),
@@ -22,7 +25,7 @@ export class RegisterComponent implements OnInit {
     }); */
 
     this.group = this.builder.group({
-      username: ['', [Validators.required, Validators.email, this.usernameExistsValidator]],
+      username: ['', [Validators.required, Validators.email], this.usernameExistsValidator.bind(this)],
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
       address: this.builder.group({
         country: [''],
@@ -61,7 +64,8 @@ export class RegisterComponent implements OnInit {
     debugger;
   }
 
-  usernameExistsValidator(control: AbstractControl): {[key: string]: any} | null {
+  // synchronous custom validator
+  /* usernameExistsValidator(control: AbstractControl): {[key: string]: any} | null {
     // custom validation code
 
     // sync validator code
@@ -73,7 +77,24 @@ export class RegisterComponent implements OnInit {
       }
     }
 
-    return null;
+    return null; // no validation error
+  } */
+
+  // asynchronous custom validator
+  usernameExistsValidator(control: AbstractControl): Observable<any|null> {
+    const { value } = control;
+    return this.http.get<any[]>(`http://localhost:3000/users?username=${value}`)
+      .pipe(
+        map(users => {
+          if (users.length) {
+            return {
+              usernameExists: true,
+            }
+          }
+
+          return null;
+        })
+      );
   }
 
 }

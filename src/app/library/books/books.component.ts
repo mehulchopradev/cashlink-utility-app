@@ -10,6 +10,8 @@ import { AddBookDialogComponent } from '../../add-book-dialog/add-book-dialog.co
 })
 export class BooksComponent implements OnInit {
 
+  displayedColumns: string[] = ['id', 'title', 'action'];
+
   constructor(public booksService: BooksService, private dialog: MatDialog) {
   }
 
