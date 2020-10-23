@@ -1,0 +1,15 @@
+<div *ngIf="book; else loading">
+    <h2>{{book.title}}</h2>
+    <div>
+        <p>Price:<i>{{book.price}}</i></p>
+        <p>Pages:<i>{{book.pages}}</i></p>
+    </div>
+    <div>
+        <p>Publication house name:<i>{{book.publicationHouse}}</i></p>
+        <p>Published date:<i>{{book.publishedDate}}</i></p>
+    </div>
+</div>
+<ng-template #loading>
+    <img src="/assets/images/loading.jpg" alt="">
+</ng-template>
+

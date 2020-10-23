@@ -1,0 +1,27 @@
+<div class="row">
+    <mat-form-field>
+        <mat-label>Enter 1st No</mat-label>
+        <input matInput [(ngModel)]="firstNo">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Select an operation</mat-label>
+        <mat-select [(ngModel)]="operation">
+            <mat-option value="+">+</mat-option>
+            <mat-option value="-">-</mat-option>
+            <mat-option value="*">*</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Enter 2nd No</mat-label>
+        <input matInput [(ngModel)]="secondNo">
+    </mat-form-field>
+</div>
+<div class="row">
+    <button mat-raised-button color="primary" (click)="onCalculate()">Calculate</button>
+</div>
+<div class="row">
+    <mat-form-field>
+        <mat-label>Ans is here!</mat-label>
+        <input matInput readonly [value]="ans">
+    </mat-form-field>
+</div>
