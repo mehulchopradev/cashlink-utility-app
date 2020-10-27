@@ -17,11 +17,13 @@ import { RouterModule } from '@angular/router';
 import { LibraryComponent } from './library/library.component';
 import { BookDetailsComponent } from './library/book-details/book-details.component';
 import { BooksComponent } from './library/books/books.component';
+import { LibraryNewRoutingModule } from './library-new-routing.module';
+import { HighlightDirective } from './highlight.directive';
 
 
 
 @NgModule({
-  declarations: [LibraryComponent, BookDetailsComponent, BooksComponent],
+  declarations: [LibraryComponent, BookDetailsComponent, BooksComponent, HighlightDirective],
   imports: [
     CommonModule,
     FormsModule,
@@ -37,6 +39,7 @@ import { BooksComponent } from './library/books/books.component';
     MatCardModule,
     MatTableModule,
     RouterModule,
+    LibraryNewRoutingModule,
   ]
 })
 export class LibraryNewModule { }

@@ -32,10 +32,10 @@ import { AddBookDialogComponent } from './add-book-dialog/add-book-dialog.compon
 import { RegisterComponent } from './register/register.component';
 
 // feature module
-import { CalculatorNewModule } from './calculator-new/calculator-new.module';
-import { CalculatorNewRoutingModule } from './calculator-new/calculator-new-routing.module';
-import { LibraryNewModule } from './library-new/library-new.module';
-import { LibraryNewRoutingModule } from './library-new/library-new-routing.module';
+/* import { CalculatorNewModule } from './calculator-new/calculator-new.module';
+import { CalculatorNewRoutingModule } from './calculator-new/calculator-new-routing.module'; */
+/* import { LibraryNewModule } from './library-new/library-new.module';
+import { LibraryNewRoutingModule } from './library-new/library-new-routing.module'; */
 
 @NgModule({
   declarations: [
@@ -72,10 +72,10 @@ import { LibraryNewRoutingModule } from './library-new/library-new-routing.modul
     MatDialogModule,
     MatCardModule,
     MatTableModule,
-    CalculatorNewModule,
-    CalculatorNewRoutingModule,
-    LibraryNewModule,
-    LibraryNewRoutingModule,
+    // CalculatorNewModule,
+    // CalculatorNewRoutingModule,
+    // LibraryNewModule,
+    // LibraryNewRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
