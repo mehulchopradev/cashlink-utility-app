@@ -21,15 +21,15 @@
     </ng-container>
     <ng-container matColumnDef="title">
         <th mat-header-cell *matHeaderCellDef>Title</th>
-        <td mat-cell *matCellDef="let book"><span appHighlight>{{book.title}}</span></td>
+        <td mat-cell *matCellDef="let book"><span appHighlight color="red">{{book.title}}</span></td>
     </ng-container>
     <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let book"><a appHighlight routerLink="/lib/book-details/{{book.id}}" href="">Details</a></td>
+        <td mat-cell *matCellDef="let book"><a appLogit appHighlight routerLink="/lib/book-details/{{book.id}}" href="">Details</a></td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 <div class="actions">
-    <button mat-raised-button color="accent" (click)="onAddBook()">Add Book</button>
+    <button appLogit mat-raised-button color="accent" (click)="onAddBook()">Add Book</button>
 </div>

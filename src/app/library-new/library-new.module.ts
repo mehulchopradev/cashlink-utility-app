@@ -18,12 +18,13 @@ import { LibraryComponent } from './library/library.component';
 import { BookDetailsComponent } from './library/book-details/book-details.component';
 import { BooksComponent } from './library/books/books.component';
 import { LibraryNewRoutingModule } from './library-new-routing.module';
-import { HighlightDirective } from './highlight.directive';
+
+import { CommonUtilitiesModule } from '../common-utilities/common-utilities.module';
 
 
 
 @NgModule({
-  declarations: [LibraryComponent, BookDetailsComponent, BooksComponent, HighlightDirective],
+  declarations: [LibraryComponent, BookDetailsComponent, BooksComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -40,6 +41,7 @@ import { HighlightDirective } from './highlight.directive';
     MatTableModule,
     RouterModule,
     LibraryNewRoutingModule,
+    CommonUtilitiesModule,
   ]
 })
 export class LibraryNewModule { }

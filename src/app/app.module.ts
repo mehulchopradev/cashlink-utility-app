@@ -30,12 +30,17 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { AddBookDialogComponent } from './add-book-dialog/add-book-dialog.component';
 import { RegisterComponent } from './register/register.component';
+import { PunishmentComponent } from './punishment/punishment.component';
+import { RepeaterDirective } from './repeater.directive';
 
 // feature module
 /* import { CalculatorNewModule } from './calculator-new/calculator-new.module';
 import { CalculatorNewRoutingModule } from './calculator-new/calculator-new-routing.module'; */
 /* import { LibraryNewModule } from './library-new/library-new.module';
 import { LibraryNewRoutingModule } from './library-new/library-new-routing.module'; */
+
+// shareable module
+import { CommonUtilitiesModule } from './common-utilities/common-utilities.module';
 
 @NgModule({
   declarations: [
@@ -52,7 +57,9 @@ import { LibraryNewRoutingModule } from './library-new/library-new-routing.modul
     BooksComponent,
     BookDetailsComponent,
     AddBookDialogComponent,
-    RegisterComponent
+    RegisterComponent,
+    PunishmentComponent,
+    RepeaterDirective,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +79,7 @@ import { LibraryNewRoutingModule } from './library-new/library-new-routing.modul
     MatDialogModule,
     MatCardModule,
     MatTableModule,
+    CommonUtilitiesModule,
     // CalculatorNewModule,
     // CalculatorNewRoutingModule,
     // LibraryNewModule,

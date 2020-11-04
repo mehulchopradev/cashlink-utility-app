@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 
+import { CommonUtilitiesModule } from '../common-utilities/common-utilities.module';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatSelectModule,
     FormsModule,
     CalculatorNewRoutingModule,
+    CommonUtilitiesModule,
   ]
 })
 export class CalculatorNewModule { }

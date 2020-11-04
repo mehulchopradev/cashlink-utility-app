@@ -4,6 +4,12 @@
   "newProjectRoot": "projects",
   "projects": {
     "utility-app": {
+      "i18n": {
+        "locales": {
+          "en": "src/locales/messages.en.xlf",
+          "fr": "src/locales/messages.fr.xlf"
+        }
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -61,6 +67,12 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "en": {
+              "localize": ["en"]
+            },
+            "fr": {
+              "localize": ["fr"]
             }
           }
         },
@@ -72,6 +84,12 @@
           "configurations": {
             "production": {
               "browserTarget": "utility-app:build:production"
+            },
+            "en": {
+              "browserTarget": "utility-app:build:en"
+            },
+            "fr": {
+              "browserTarget": "utility-app:build:fr"
             }
           }
         },

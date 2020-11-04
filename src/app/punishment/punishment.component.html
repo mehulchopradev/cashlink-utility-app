@@ -1,0 +1,15 @@
+<div>
+    <mat-form-field>
+        <mat-label>Enter the punishment given by ur teacher</mat-label>
+        <input type="text" matInput [(ngModel)]="punishment">
+    </mat-form-field>
+</div>
+<div>
+    <mat-form-field>
+        <mat-label>Enter the number of times you have been asked to write it </mat-label>
+        <input type="number" matInput [(ngModel)]="noOfTimes">
+    </mat-form-field>
+</div>
+<div>
+    <p *appRepeater="noOfTimes">{{punishment}}</p>
+</div>
